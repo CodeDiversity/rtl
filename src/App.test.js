@@ -29,6 +29,18 @@ test('initial conditions', () => {
   expect(checkbox).not.toBeChecked();
 })
 
+test('button should be disabled when checkbox is checked and enabled when unchecked', () => {
+  render(<App/>)
+  const checkbox = screen.getByRole('checkbox');
+  const colorButton = screen.getByRole('button', {name: "Change to blue"});
+  fireEvent.click(checkbox);
+  expect(colorButton).toBeDisabled();
+  expect(checkbox).toBeChecked();
+  fireEvent.click(checkbox);
+  expect(colorButton).toBeEnabled()
+  expect(checkbox).not.toBeChecked();
+})
+
 
 //https://www.w3.org/TR/wai-aria/#role_definitions role definitions W3C
 // https://testing-library.com/docs/queries/about/#priority which query RTL
