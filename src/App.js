@@ -6,9 +6,13 @@ function App() {
   const newButtonColor = buttonColor === "red" ? "blue" : "red";
   return (
     <div className="App">
-      <button onClick={() => setButtonColor(newButtonColor)} style={{ backgroundColor: buttonColor }}>
+      <button
+        onClick={() => setButtonColor(newButtonColor)}
+        style={{ backgroundColor: buttonColor }}
+      >
         Change to {newButtonColor}
       </button>
+      <input type="checkbox" />
     </div>
   );
 }

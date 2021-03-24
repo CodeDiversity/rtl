@@ -19,6 +19,16 @@ test('button turns blue when clicked', () => {
   expect(colorButton.textContent).toBe('Change to red');
 })
 
+test('initial conditions', () => {
+  render(<App/>)
+  // check that button starts enabled 
+  const colorButton = screen.getByRole('button', {name: "Change to blue"})
+  expect(colorButton).toBeEnabled();
+  // check that checkbox starts out unchecked
+  const checkbox = screen.getByRole('checkbox');
+  expect(checkbox).not.toBeChecked();
+})
+
 
 //https://www.w3.org/TR/wai-aria/#role_definitions role definitions W3C
 // https://testing-library.com/docs/queries/about/#priority which query RTL
