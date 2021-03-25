@@ -5,25 +5,25 @@ import {replaceCamelWithSpaces} from './App'
 test('the button has correct initial color', () => {
   render(<App/>);
   // find an element with a role of button and change text to blue
-  const colorButton = screen.getByRole('button', {name: "Change to blue"});
+  const colorButton = screen.getByRole('button', {name: "Change to Midnight Blue"});
   // expect the background color to be render
-  expect(colorButton).toHaveStyle({backgroundColor: 'red'})
+  expect(colorButton).toHaveStyle({backgroundColor: 'MediumVioletRed'})
 });
 
 test('button turns blue when clicked', () => {
   render(<App/>);
-  const colorButton = screen.getByRole('button', {name: "Change to blue"});
+  const colorButton = screen.getByRole('button', {name: "Change to Midnight Blue"});
   fireEvent.click(colorButton);
   // expect bg color to be blue
-  expect(colorButton).toHaveStyle({backgroundColor:'blue'})
+  expect(colorButton).toHaveStyle({backgroundColor:'MidnightBlue'})
   // expect button text to be change to render
-  expect(colorButton.textContent).toBe('Change to red');
+  expect(colorButton.textContent).toBe('Change to Medium Violet Red');
 })
 
 test('initial conditions', () => {
   render(<App/>)
   // check that button starts enabled 
-  const colorButton = screen.getByRole('button', {name: "Change to blue"})
+  const colorButton = screen.getByRole('button', {name: "Change to Midnight Blue"});
   expect(colorButton).toBeEnabled();
   // check that checkbox starts out unchecked
   const checkbox = screen.getByRole('checkbox');
@@ -33,7 +33,7 @@ test('initial conditions', () => {
 test('button should be disabled when checkbox is checked and enabled when unchecked', () => {
   render(<App/>)
   const checkbox = screen.getByRole('checkbox', {name: 'Disable button'});
-  const colorButton = screen.getByRole('button', {name: "Change to blue"});
+  const colorButton = screen.getByRole('button', {name: "Change to Midnight Blue"});
   fireEvent.click(checkbox);
   expect(colorButton).toBeDisabled();
   expect(checkbox).toBeChecked();
