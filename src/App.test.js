@@ -36,6 +36,7 @@ test('button should be disabled when checkbox is checked and enabled when unchec
   fireEvent.click(checkbox);
   expect(colorButton).toBeDisabled();
   expect(checkbox).toBeChecked();
+  expect(colorButton).toHaveStyle({backgroundColor: 'gray'})
   fireEvent.click(checkbox);
   expect(colorButton).toBeEnabled()
   expect(checkbox).not.toBeChecked();
